@@ -118,14 +118,21 @@ export function AdminRepairs() {
       .update({ 
         status: nextStatus, 
         updated_at: new Date().toISOString(),
-        history: newHistory
+        history: newHistory,
+        public_note: statusNote.trim() || repair.public_note // Preserve or update
       })
       .eq('id', id);
 
     if (error) {
       toast.error('Hiba a frissítéskor');
     } else {
-      setRepairs(repairs.map(r => r.id === id ? { ...r, status: nextStatus!, updated_at: new Date().toISOString(), history: newHistory } : r));
+      setRepairs(repairs.map(r => r.id === id ? { 
+        ...r, 
+        status: nextStatus!, 
+        updated_at: new Date().toISOString(), 
+        history: newHistory,
+        public_note: statusNote.trim() || r.public_note
+      } : r));
       toast.success('Állapot frissítve');
       setStatusNote('');
       setEditingRepair(null);
@@ -297,7 +304,12 @@ function RepairItem({ repair, onUpdateStatus, onUpdateDate }: { repair: Repair; 
             <span className="text-[10px] font-mono text-cafe-medium/30">{repair.id.slice(0, 8)}...</span>
           </div>
           <h3 className="text-xl font-bold text-cafe-dark">{repair.customer_name}</h3>
-          <p className="text-cafe-medium/60 font-medium">{repair.machine_model}</p>
+          <p className="text-cafe-medium/60 font-medium mb-2">{repair.machine_model}</p>
+          {repair.public_note && (
+             <div className="text-[10px] bg-cafe-gold/5 text-cafe-gold px-2 py-1 rounded inline-block">
+               Aktív üzenet: <span className="italic">"{repair.public_note}"</span>
+             </div>
+          )}
         </div>
 
         <div className="flex items-center gap-2 w-full md:w-auto">

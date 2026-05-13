@@ -13,6 +13,7 @@ export interface Repair {
   phone: string;
   machine_model: string;
   error_description: string;
+  public_note?: string;
   status: RepairStatus;
   estimated_completion?: string;
   history: RepairHistoryItem[];
@@ -41,6 +42,8 @@ export interface Appointment {
   phone: string;
   machine_model: string;
   description: string;
+  image_url?: string;
+  public_note?: string;
   requested_date: string;
   status: AppointmentStatus;
   created_at: string;
