@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cafe-dark: #3E2723;
+  --color-cafe-medium: #5D4037;
+  --color-cafe-light: #8D6E63;
+  --color-cafe-cream: #F5F5F0;
+  --color-cafe-gold: #FFB300;
+  --color-cafe-steel: #546E7A;
+}
+
+@layer base {
+  body {
+    @apply bg-cafe-cream text-cafe-dark font-sans;
+  }
+}
+
+.cafe-card {
+  @apply bg-white border border-cafe-medium/10 rounded-2xl shadow-sm overflow-hidden;
+}
+
+.cafe-btn-primary {
+  @apply bg-cafe-dark text-cafe-cream px-6 py-3 rounded-xl font-medium transition-all hover:bg-cafe-medium active:scale-95 disabled:opacity-50;
+}
+
+.cafe-btn-secondary {
+  @apply bg-cafe-steel text-white px-6 py-3 rounded-xl font-medium transition-all hover:bg-cafe-medium active:scale-95;
+}
+
+.cafe-input {
+  @apply w-full px-4 py-3 rounded-xl border border-cafe-medium/20 focus:ring-2 focus:ring-cafe-gold focus:border-transparent outline-none bg-white transition-all;
+}

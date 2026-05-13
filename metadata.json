@@ -1,0 +1,6 @@
+{
+  "name": "Kávégépszerviz és Értékesítés",
+  "description": "Profi kávégép javítás és felújított gépek értékesítése. Keressen rá munkalapjára vagy válasszon minőségi használt gépeink közül.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": []
+}
