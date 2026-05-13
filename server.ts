@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { createServer as createViteServer } from "vite";
 import { fileURLToPath } from "url";
 import apiRouter from "./src/server/routes/api.ts";
+import { supabase } from "./src/lib/supabase.ts";
 
 // Load environment variables
 dotenv.config();
